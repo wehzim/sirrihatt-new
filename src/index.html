@@ -1,0 +1,434 @@
+<!doctype html>
+<html class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="asset/output.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <link rel="stylesheet" href="asset/main.css">
+</head>
+
+<body>
+    
+    <nav x-data="{ isOpen: false }" class="relative bg-white shadow dark:bg-gray-800">
+        <div class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+            <div class="flex items-center justify-between">
+                <a href="#">
+                    <img class="w-auto h-6 sm:h-7" src="asset/img/sirrihatt_logo_full.png" alt="">
+                </a>
+    
+                <!-- Mobile menu button --> 
+                <div class="flex lg:hidden md:hidden">
+                    <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                        <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                        </svg>
+                
+                        <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+            <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
+                <div class="flex flex-col md:flex-row md:mx-6">
+                    <a class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#products">Product</a>
+                    <a class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#services">Services</a>
+                    <a class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="h-screen relative overflow-hidden" id="home">
+        <!-- Carousel -->
+        <div id="carousel" class="flex transition-transform duration-700 ease-in-out w-full h-full" style="transform: translateX(0%)">
+          
+          <!-- Slide 1 -->
+          <div class="min-w-full h-full flex items-center justify-center relative">
+            <img src="asset/img/carousel-1.webp" alt="Slide 1" class="absolute w-full h-full object-cover" />
+            <div class="relative z-10 text-white text-center p-6 rounded-xl">
+              <h2 class="text-4xl md:text-6xl font-bold mb-4">Welcome to Sirrihatt</h2>
+              <p class="text-lg md:text-xl max-w-5xl mx-auto">Over the past few years, we've worked with a wide range of clients, each with their own unique needs and goals. 
+                Despite these differences, there's one thing that all of our clients have in common: a desire to succeed.</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="min-w-full h-full flex items-center justify-center relative">
+            <img src="asset/img/carousel-2.webp" alt="Slide 2" class="absolute w-full h-full object-cover" />
+            <div class="relative z-10 text-white text-center p-6 rounded-xl">
+              <h2 class="text-4xl md:text-6xl font-bold mb-4">In-house Software Development</h2>
+              <p class="text-lg md:text-xl max-w-5xl mx-auto">We specialize in in-house software development for underwater subsea inspection. 
+                Our team of experts has years of experience in developing software solutions for businesses in the oil and gas and marine industries.</p>
+            </div>
+          </div>
+      
+          <!-- Slide 3 -->
+          <div class="min-w-full h-full flex items-center justify-center relative">
+            <img src="asset/img/carousel-3.webp" alt="Slide 3" class="absolute w-full h-full object-cover" />
+            <div class="relative z-10 text-white text-center p-6 rounded-xl">
+              <h2 class="text-4xl md:text-6xl font-bold mb-4">Extensive yet impressive track records</h2>
+              <p class="text-lg md:text-xl max-w-5xl mx-auto">We've worked with clients across the region, each with their own requirements and goals.</p>
+            </div>
+          </div>
+      
+          
+      
+        </div>
+      
+        <!-- Controls -->
+        <button id="prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 hover:text-blue-500 text-white transition">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button id="next" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 hover:text-blue-500 text-white transition">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+      </section>
+    
+      <section id="products" class="py-16" style="background-color: #1f2937;">
+        <div class="container mx-auto px-6 text-center">
+          <h2 class="text-4xl font-bold mb-10" style="color: white;">Our Products</h2>
+          <h3 class="text-lg max-w-3xl mx-auto mb-10" style="color: white;">Discover a range of purpose-built products engineered to support your workflows, enhance decision-making, and empower your inspection and data management needs.</h3>
+          <div class="grid gap-6 md:grid-cols-4">
+            
+            <div class="group p-6 shadow rounded-xl bg-gray-50 transform transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+                <div class="p-5 justify-items-center" style="color: #1f2937;">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 2h6a1 1 0 011 1v1H8V3a1 1 0 011-1z" />
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-2xl">Inspection Recording Suite</h3>
+                <p class="text-sm text-gray-600 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden">
+                    Inspection Recording system with 5 level file tree folder management, come with modern User Interface.
+                </p>
+            </div>
+      
+            <div class="group p-6 shadow rounded-xl bg-gray-50 transform transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+                <div class="p-5 justify-items-center" style="color: #1f2937;">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-2xl">Integrated Eventing</h3>
+                <p class="text-sm text-gray-600 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden">
+                    Integrated Eventing with ability to log various type of structure event for pipeline and platform inspection.
+                </p>
+            </div>
+      
+            <div class="group p-6 shadow rounded-xl bg-gray-50 transform transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+                <div class="p-5 justify-items-center" style="color: #1f2937;">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4a2 2 0 001-1.73z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.29 7L12 12.71 20.71 7" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 22V12.71" />
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-2xl">3D Platform Inspector</h3>
+                <p class="text-sm text-gray-600 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden">
+                    Viewing 3D structural modeling as per as build drawing with all associate components link to video and data
+                </p>
+            </div>
+      
+            <div class="group p-6 shadow rounded-xl bg-gray-50 transform transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+                <div class="p-5 justify-items-center" style="color: #1f2937;">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <ellipse cx="12" cy="5" rx="9" ry="3" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12c0 1.657 4.03 3 9 3s9-1.343 9-3" />
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-2xl">Data Administration</h3>
+                <p class="text-sm text-gray-600 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden">
+                    Managing workpack and identifying every component to provide task for inspector.
+                </p>
+            </div>
+      
+          </div>
+        </div>
+      </section>
+    
+      <section class="bg-white dark:bg-gray-900" id="services">
+        <div class="container px-6 py-10 mx-auto">
+            <div class="text-center">
+                <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">Our Services</h1>
+    
+                <p class="text-lg max-w-3xl mx-auto mt-4 text-white">
+                    Explore our core service offerings crafted to deliver innovative solutions, enhance operational efficiency, 
+                    and drive measurable results for your business success.
+                </p>
+            </div>
+    
+            <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2 xl:grid-cols-4">
+                <div>
+                    <div class="relative">
+                        <img class="object-cover object-center w-full h-64 rounded-lg lg:h-80" src="asset/img/data_aquisition.webp" alt="">
+
+                    </div>
+    
+                    <h1 class="mt-6 text-xl font-semibold text-gray-800 dark:text-white">
+                        Data Acquisition System for Integrity Management
+                    </h1>
+    
+                    <hr class="w-32 my-6 text-blue-500">
+    
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Enables life-of-field monitoring, structured risk assessment, 
+                        and centralized data management to support informed integrity decisions.
+                    </p>
+                </div>
+    
+                <div>
+                    <div class="relative">
+                        <img class="object-cover object-center w-full h-64 rounded-lg lg:h-80" src="asset/img/3d_work.webp" alt="">
+
+                    </div>
+    
+                    <h1 class="mt-6 text-xl font-semibold text-gray-800 dark:text-white">
+                        3D Drawing and Modelling
+                    </h1>
+    
+                    <hr class="w-32 my-6 text-blue-500">
+    
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Draw and remodelling offshore structure including rigs, platforms, pipelines and subsea structure.
+                    </p>
+                </div>
+    
+                <div>
+                    <div class="relative">
+                        <img class="object-cover object-center w-full h-64 rounded-lg lg:h-80" src="asset/img/gis_work.webp" alt="">
+                    </div>
+    
+                    <h1 class="mt-6 text-xl font-semibold text-gray-800 dark:text-white">
+                        GIS Asset Management
+                    </h1>
+    
+                    <hr class="w-32 my-6 text-blue-500">
+    
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        GIS for client asset.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="relative">
+                        <img class="object-cover object-center w-full h-64 rounded-lg lg:h-80" src="asset/img/rov.webp" alt="">
+
+                    </div>
+    
+                    <h1 class="mt-6 text-xl font-semibold text-gray-800 dark:text-white">
+                        ROV Services
+                    </h1>
+    
+                    <hr class="w-32 my-6 text-blue-500">
+    
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        ROV services involve the use of remotely operated vehicles (ROVs) to conduct inspections, surveys, and maintenance activities in underwater environments. 
+                        These vehicles are equipped with various cameras and sensors, 
+                        allowing operators to remotely control and maneuver them to perform tasks in a wide range of underwater applications.
+                    </p>
+                </div>
+    
+                <div>
+                    <div class="relative">
+                        <img class="object-cover object-center w-full h-64 rounded-lg lg:h-80" src="asset/img/diver.webp" alt="">
+
+                    </div>
+    
+                    <h1 class="mt-6 text-xl font-semibold text-gray-800 dark:text-white">
+                        Air Diving and Saturation Diving
+                    </h1>
+    
+                    <hr class="w-32 my-6 text-blue-500">
+    
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Our diving services combine air diving for efficient, shallow water tasks and teamwork-focused saturation diving for deep, extended underwater projects. 
+                        Prioritizing safety and utilizing advanced technology, our skilled and experienced divers deliver collaborative, 
+                        efficient solutions for underwater construction, maintenance, and research, ensuring top-tier results in most scenarios.
+                    </p>
+                </div>
+    
+                <div>
+                    <div class="relative">
+                        <img class="object-cover object-center w-full h-64 rounded-lg lg:h-80" src="asset/img/vessel.webp" alt="">
+                    </div>
+    
+                    <h1 class="mt-6 text-xl font-semibold text-gray-800 dark:text-white">
+                        Vessel Supply
+                    </h1>
+    
+                    <hr class="w-32 my-6 text-blue-500">
+    
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Effortless optimization of offshore operations is achieved through our specialized offshore supply vessel services. 
+                        A comprehensive range of provisions, equipment, and seamless logistics support is offered, ensuring vessels operate seamlessly. 
+                        Reliable, timely deliveries and a commitment to excellence characterize our services, 
+                        empowering offshore projects with efficiency and precision while maintaining a focus on the operational needs of each vessel.
+                    </p>
+                </div>
+                
+                <div>
+                    <div class="relative">
+                        <img class="object-cover object-center w-full h-64 rounded-lg lg:h-80" src="asset/img/offshore-personnel.webp" alt="">
+
+                    </div>
+    
+                    <h1 class="mt-6 text-xl font-semibold text-gray-800 dark:text-white">
+                        Highly Trained Offshore Personnel
+                    </h1>
+    
+                    <hr class="w-32 my-6 text-blue-500">
+    
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Our team comprises certified professionals including 3.4u Inspectors, ACFM Inspectors, 
+                        CP Engineers, and Field Engineers—each equipped with specialized expertise to ensure safe, efficient, and compliant offshore operations.
+                    </p>
+                </div>
+    
+                <div>
+                    <div class="relative">
+                        <img class="object-cover object-center w-full h-64 rounded-lg lg:h-80" src="asset/img/inspection_consultation.webp" alt="">
+
+                    </div>
+    
+                    <h1 class="mt-6 text-xl font-semibold text-gray-800 dark:text-white">
+                        Inspection Consultation
+                    </h1>
+    
+                    <hr class="w-32 my-6 text-blue-500">
+    
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Rely on our expertise for comprehensive Underwater Inspection Consultation services. We offer tailored solutions, combining advanced technology and experienced professionals to ensure precise assessments.
+                         From initial planning to detailed reporting, our consultancy enhances the efficiency and safety of underwater inspections, meeting the unique needs of each project.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="py-16" style="background-color: #1f2937;">
+        
+        <div class="container mx-auto px-6 text-center pb-5">
+            <h2 class="text-3xl font-bold mb-8 text-white">Contact Us</h2>
+                <div class="grid grid-cols-2 gap-8 mt-8 md:mt-16">
+                    <div class="px-5 space-y-6 text-white mx-auto" style="margin-top: -30px;">
+                        <!-- Logo -->
+                        <img src="asset/img/sirrihatt_logo_full.png" alt="Company Logo" class="w-80 pb-5">
+                    
+                        <!-- Address -->
+                        <div class="flex items-start space-x-3">
+                            <img src="asset/icons/location.png" alt="" style="max-width: 25px;">
+                          <p style="text-align: left;">5, Jalan TP 7/6,<br>
+                            Taman Perindustrian Sime UEP,<br>
+                            47620 Subang Jaya,<br>
+                            Selangor, MALAYSIA</p>
+                        </div>
+                    
+                        <!-- Phone -->
+                        <div class="flex items-start space-x-3">
+                          <img src="asset/icons/phone.png" alt="" style="max-width: 25px;">
+                          <p>+603-51019163</p>
+                        </div>
+                    
+                        <!-- Email -->
+                        <div class="flex items-start space-x-3">
+                          <img src="asset/icons/email.png" alt="" style="max-width: 25px;">
+                          <p>info@sirrihatt.com</p>
+                        </div>
+                      </div>
+
+                    <form class="grid gap-4 px-5">
+                        <input type="text" placeholder="Your Name" class="p-3 border rounded text-white" />
+                        <input type="email" placeholder="Your Email" class="p-3 border rounded text-white" />
+                        <textarea placeholder="Your Message" class="p-3 border rounded h-32 text-white"></textarea>
+                        <button type="submit" class="bg-blue-500 text-white w-60 mx-auto py-3 px-6 rounded hover:bg-blue-600">Send Message</button>
+                    </form>
+                </div>
+        </div>
+        <div class="p-5 justify-items-center">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.1875219717263!2d101.55027307497069!3d3.0443679969314448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb7ce1d449d05%3A0x22f452481cd8d835!2sSirrihatt%20Subsea%20Services%20Sdn%20Bhd!5e0!3m2!1sen!2smy!4v1750498840410!5m2!1sen!2smy" width="80%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+      
+    <button id="backToTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        class="fixed bottom-6 right-6 z-50 hidden bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition">
+        <!-- Up Arrow SVG -->
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+    
+      <footer class="bg-gray-800 text-white text-center py-6 text-sm px-4">
+        <p>&copy; 2025 Sirrihatt Subsea Services Sdn Bhd. All rights reserved.</p>
+      </footer>
+    
+      <script>
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+    
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      </script>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const totalSlides = carousel.children.length;
+        let currentIndex = 0;
+    
+        function updateCarousel() {
+        const percentage = -100 * currentIndex;
+        carousel.style.transform = `translateX(${percentage}%)`;
+        }
+    
+        document.getElementById('next').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+        resetAutoplay();
+        });
+    
+        document.getElementById('prev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+        resetAutoplay();
+        });
+    
+        // Autoplay
+        let autoplay = setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+        }, 5000);
+    
+        function resetAutoplay() {
+        clearInterval(autoplay);
+        autoplay = setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }, 5000);
+        }
+    </script>
+
+    <script>
+        const backToTopBtn = document.getElementById('backToTopBtn');
+    
+        window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.remove('hidden');
+        } else {
+            backToTopBtn.classList.add('hidden');
+        }
+        });
+    </script>
+
+</body>
+</html>
