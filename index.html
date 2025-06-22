@@ -2,15 +2,17 @@
 <html class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
+  <title>Sirrihatt Subsea Services Sdn Bhd</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="src/asset/output.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   <link rel="stylesheet" href="src/asset/main.css">
+  <script src="https://unpkg.com/alpinejs" defer></script>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
     
     <nav x-data="{ isOpen: false }" class="relative bg-white shadow dark:bg-gray-800">
         <div class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
@@ -52,8 +54,8 @@
           <div class="min-w-full h-full flex items-center justify-center relative">
             <img src="src/asset/img/carousel-1.webp" alt="Slide 1" class="absolute w-full h-full object-cover" />
             <div class="relative z-10 text-white text-center p-6 rounded-xl">
-              <h2 class="text-4xl md:text-6xl font-bold mb-4">Welcome to Sirrihatt</h2>
-              <p class="text-lg md:text-xl max-w-5xl mx-auto">Over the past few years, we've worked with a wide range of clients, each with their own unique needs and goals. 
+              <h2 class="text-4xl font-bold mb-4">Welcome to Sirrihatt</h2>
+              <p class="text-lg sm:text-md max-w-sm sm:max-w-lg md:max-w-4xl mx-auto">Over the past few years, we've worked with a wide range of clients, each with their own unique needs and goals. 
                 Despite these differences, there's one thing that all of our clients have in common: a desire to succeed.</p>
             </div>
           </div>
@@ -63,7 +65,7 @@
             <img src="src/asset/img/carousel-2.webp" alt="Slide 2" class="absolute w-full h-full object-cover" />
             <div class="relative z-10 text-white text-center p-6 rounded-xl">
               <h2 class="text-4xl md:text-6xl font-bold mb-4">In-house Software Development</h2>
-              <p class="text-lg md:text-xl max-w-5xl mx-auto">We specialize in in-house software development for underwater subsea inspection. 
+              <p class="text-lg sm:text-md max-w-sm sm:max-w-lg md:max-w-4xl mx-auto">We specialize in in-house software development for underwater subsea inspection. 
                 Our team of experts has years of experience in developing software solutions for businesses in the oil and gas and marine industries.</p>
             </div>
           </div>
@@ -73,7 +75,7 @@
             <img src="src/asset/img/carousel-3.webp" alt="Slide 3" class="absolute w-full h-full object-cover" />
             <div class="relative z-10 text-white text-center p-6 rounded-xl">
               <h2 class="text-4xl md:text-6xl font-bold mb-4">Extensive yet impressive track records</h2>
-              <p class="text-lg md:text-xl max-w-5xl mx-auto">We've worked with clients across the region, each with their own requirements and goals.</p>
+              <p class="text-lg sm:text-md max-w-sm sm:max-w-lg md:max-w-4xl mx-auto">We've worked with clients across the region, each with their own requirements and goals.</p>
             </div>
           </div>
       
@@ -108,9 +110,16 @@
                     </svg>
                 </div>
                 <h3 class="font-semibold text-2xl">Inspection Recording Suite</h3>
-                <p class="text-sm text-gray-600 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden">
-                    Inspection Recording system with 5 level file tree folder management, come with modern User Interface.
-                </p>
+                <div x-data="{ open: false }" @click="open = !open" class="cursor-pointer group">
+                    <p class="text-base py-5">Tap to view details</p>
+                
+                    <p 
+                        x-bind:class="open ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0'"
+                        class="text-sm text-gray-600 mt-2 transition-all duration-500 overflow-hidden"
+                    >
+                        Inspection Recording system with 5 level file tree folder management, come with modern User Interface.
+                    </p>
+                </div>
             </div>
       
             <div class="group p-6 shadow rounded-xl bg-gray-50 transform transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
@@ -120,9 +129,16 @@
                     </svg>
                 </div>
                 <h3 class="font-semibold text-2xl">Integrated Eventing</h3>
-                <p class="text-sm text-gray-600 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden">
-                    Integrated Eventing with ability to log various type of structure event for pipeline and platform inspection.
-                </p>
+                <div x-data="{ open: false }" @click="open = !open" class="cursor-pointer group">
+                    <p class="text-base py-5">Tap to view details</p>
+                
+                    <p 
+                        x-bind:class="open ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0'"
+                        class="text-sm text-gray-600 mt-2 transition-all duration-500 overflow-hidden"
+                    >
+                        Integrated Eventing with ability to log various type of structure event for pipeline and platform inspection.
+                    </p>
+                </div>
             </div>
       
             <div class="group p-6 shadow rounded-xl bg-gray-50 transform transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
@@ -134,9 +150,16 @@
                     </svg>
                 </div>
                 <h3 class="font-semibold text-2xl">3D Platform Inspector</h3>
-                <p class="text-sm text-gray-600 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden">
-                    Viewing 3D structural modeling as per as build drawing with all associate components link to video and data
-                </p>
+                <div x-data="{ open: false }" @click="open = !open" class="cursor-pointer group">
+                    <p class="text-base py-5">Tap to view details</p>
+                
+                    <p 
+                        x-bind:class="open ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0'"
+                        class="text-sm text-gray-600 mt-2 transition-all duration-500 overflow-hidden"
+                    >
+                        Viewing 3D structural modeling as per as-built drawing with all associated components linked to video and data.
+                    </p>
+                </div>
             </div>
       
             <div class="group p-6 shadow rounded-xl bg-gray-50 transform transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
@@ -148,9 +171,16 @@
                     </svg>
                 </div>
                 <h3 class="font-semibold text-2xl">Data Administration</h3>
-                <p class="text-sm text-gray-600 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden">
-                    Managing workpack and identifying every component to provide task for inspector.
-                </p>
+                <div x-data="{ open: false }" @click="open = !open" class="cursor-pointer group">
+                    <p class="text-base py-5">Tap to view details</p>
+                
+                    <p 
+                        x-bind:class="open ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0'"
+                        class="text-sm text-gray-600 mt-2 transition-all duration-500 overflow-hidden"
+                    >
+                        Managing workpack and identifying every component to provide task for inspector.
+                    </p>
+                </div>
             </div>
       
           </div>
@@ -210,7 +240,7 @@
                     </div>
     
                     <h1 class="mt-6 text-xl font-semibold text-gray-800 dark:text-white">
-                        GIS Asset Management
+                        GIS asset Management
                     </h1>
     
                     <hr class="w-32 my-6 text-blue-500">
@@ -320,8 +350,8 @@
         
         <div class="container mx-auto px-6 text-center pb-5">
             <h2 class="text-3xl font-bold mb-8 text-white">Contact Us</h2>
-                <div class="grid grid-cols-2 gap-8 mt-8 md:mt-16">
-                    <div class="px-5 space-y-6 text-white mx-auto" style="margin-top: -30px;">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8 md:mt-16">
+                    <div class="px-5 space-y-6 text-white mx-auto sm:justify-items-start" style="margin-top: -30px;">
                         <!-- Logo -->
                         <img src="src/asset/img/sirrihatt_logo_full.png" alt="Company Logo" class="w-80 pb-5">
                     
@@ -347,7 +377,7 @@
                         </div>
                       </div>
 
-                    <form class="grid gap-4 px-5">
+                    <form class="grid gap-4 px-5 max-w-sm sm:max-w-lg ">
                         <input type="text" placeholder="Your Name" class="p-3 border rounded text-white" />
                         <input type="email" placeholder="Your Email" class="p-3 border rounded text-white" />
                         <textarea placeholder="Your Message" class="p-3 border rounded h-32 text-white"></textarea>
